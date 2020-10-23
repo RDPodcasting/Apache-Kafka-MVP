@@ -42,7 +42,8 @@ kafka-topics --bootstrap-server localhost:9092 --list
 ```
 {
   "Kafka_Broker": "localhost:9092",
-  "Kafka_Topic": "<nome_topico>"
+  "Kafka_Topic": "<nome_topico>",
+  "TotalVendas": "10"
 }
 ```
 ### 1. Simulador de vendas:
