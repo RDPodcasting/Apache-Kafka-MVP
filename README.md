@@ -1,4 +1,4 @@
-# Projeto de venda de ingressos
+# Projeto de venda de ingressos ![CodeQL](https://github.com/RDPodcasting/Apache-Kafka-MVP/workflows/CodeQL/badge.svg)
 > Um sistema de venda de ingressos dividido em duas partes, onde uma fique gerando as vendas de ingressos aos montes, como se fosse um horário de pico das vendas para o show de um grande artista. 
 > E para que o sistema não caia, teremos um processador dessas vendas, utilizando mensageria com apache kafka de forma escalavel para aguentar a alta demanda de ingressos vendidos.
 
