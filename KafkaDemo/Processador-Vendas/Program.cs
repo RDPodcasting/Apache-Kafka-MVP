@@ -2,6 +2,8 @@
 using System.Threading;
 using Confluent.Kafka;
 using Serilog;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace Processador_Vendas
 {
@@ -9,20 +11,24 @@ namespace Processador_Vendas
     {
         static void Main(string[] args)
         {
-
-
+            Console.WriteLine("Carregando configurações...");
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile($"appsettings.json");
+            var configuration = builder.Build();
 
             var logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .CreateLogger();
+               .WriteTo.Console()
+               .CreateLogger();
+            Console.WriteLine("Configurações carregadas com sucesso...");
 
             logger.Information("Testando o consumo de mensagens com Kafka");
 
-            string bootstrapServer = "localhost:9092";
-            string topic = "teste";
+            string bootstrapServer = configuration["Kafka_Broker"]; ;
+            string topic = configuration["Kafka_Topic"];
 
-            logger.Information($"Servidor = {bootstrapServer}");
-            logger.Information($"Tópico = {topic}");
+            logger.Information($"BootstrapServer = {bootstrapServer}");
+            logger.Information($"Topic = {topic}");
 
             var config = new ConsumerConfig
             {
@@ -40,8 +46,8 @@ namespace Processador_Vendas
 
             try
             {
-                using (var consumer = new ConsumerBuilder<Ignore, string>(config).Build())
-                {
+                using var consumer = new ConsumerBuilder<Ignore, string>(config).Build();
+                
                     consumer.Subscribe(topic);
 
                     try
@@ -58,7 +64,7 @@ namespace Processador_Vendas
                         consumer.Close();
                         logger.Warning("Cancelada a execução do Consumer...");
                     }
-                }
+                
             }
             catch (Exception ex)
             {
