@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Vendas_Ingressos</RootNamespace>
+    <ProjectGuid>3260ed64-5c6c-4a1c-b4e8-60a5ce7dab79</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Processador_Vendas</RootNamespace>
+    <ProjectGuid>ef8596cc-7ea5-48ef-9cac-ff1b18efd294</ProjectGuid>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Confluent.Kafka" Version="1.5.2" />
