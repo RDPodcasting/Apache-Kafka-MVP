@@ -10,6 +10,8 @@
 | Console Application | Criada com .NET Core 3.1    |
 | Serilog   |  Gerenciamento de logs da aplicação   |
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/dashboard?id=RDPodcasting_Apache-Kafka-MVP)
+
 ## Índice :pencil:
 
 * [Instalação](#instalação)
